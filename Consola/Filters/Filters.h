@@ -18,6 +18,7 @@ class Filters {
     static Image ExponentialDarkening(Image img, double alpha);
     static Image Binarize(Image img, int threshold);
     static Image BinarizeByChannel(Image img, int threshold);
+    static Image Histogram(Image img);
 };
 
 Image Filters::Negative(Image img) {
@@ -111,6 +112,34 @@ Image Filters::ExponentialDarkening(Image img, double alpha) {
     }
   }
   return img;
+}
+
+Image Filters::Histogram(Image img) {
+  Image histo;
+  histo.Create(255,255,255);
+  int histogram[256] = {0}, max = 0;
+  for (int y = 0; y < img.height; y++) {
+    for (int x = 0; x < img.width; x++) {
+      histogram[img.pixels[x][y].R]++;
+    }
+  }
+
+  for(int y = 0; y < 256; y++) {
+    if(histogram[y] > max) {
+      max = histogram[y];
+    }
+  }
+  cout << max << endl;
+  // normalizar sobre el canal con mayor repeticiones del pixel
+
+  for (int x = 0; x < histo.width; x++) {
+    int normal = (histogram[x] / histo.height);
+    histo.pixels[normal][x].R = 255;
+    histo.pixels[normal][x].G = 255;
+    histo.pixels[normal][x].B = 255;
+  }
+
+  return histo;
 }
 
 Image Filters::Binarize(Image img, int threshold) {

@@ -86,6 +86,12 @@ int main() {
         Filters::BinarizeByChannel(copy, treshold);
         SaveImage(copy);
       } break;
+      case 11: {
+        Image original, copy;
+        tie(original, copy) = BuildResource();
+        Image histo = Filters::Histogram(copy);
+        SaveImage(histo);
+      } break;
     }
   }while(true);
 }
@@ -103,6 +109,7 @@ int ShowMenu() {
   cout << "(8) Oscurecimiento exponencial" << endl;
   cout << "(9) Binarizar" << endl;
   cout << "(10) Binarizar por canal" << endl;
+  cout << "(11) Histograma Gris" << endl;
   cout << "(0) Salir del programa" << endl;
   cout << "Accion: "; cin >> reply;
   return reply;
