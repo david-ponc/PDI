@@ -116,7 +116,7 @@ Image Filters::ExponentialDarkening(Image img, double alpha) {
 
 Image Filters::Histogram(Image img) {
   Image histo;
-  histo.Create(255,255,255);
+  histo.Create(256,256,255);
   int histogram[256] = {0}, max = 0;
   for (int y = 0; y < img.height; y++) {
     for (int x = 0; x < img.width; x++) {
@@ -129,15 +129,19 @@ Image Filters::Histogram(Image img) {
       max = histogram[y];
     }
   }
+
   cout << max << endl;
   // normalizar sobre el canal con mayor repeticiones del pixel
 
   for (int y = 0; y < histo.width; y++) {
-    int normal = histo.height-((histogram[y]*histo.height) / (histo.width*histo.height))-1;
+    int normal = (histogram[y] * 100) / (max);
+    cout << normal <<endl;
+    normal = histo.height - ((normal * histo.height) / 100);
+    cout << normal <<endl;
     for (int x = normal; x < histo.height; x++) {
-      histo.pixels[x][y].R = 255;
-      histo.pixels[x][y].G = 255;
-      histo.pixels[x][y].B = 255;
+        histo.pixels[x][y].R = 255;
+        histo.pixels[x][y].G = 255;
+        histo.pixels[x][y].B = 255;
     }
   }
 
@@ -162,11 +166,34 @@ Image Filters::Binarize(Image img, int threshold) {
 }
 
 Image Filters::BinarizeByChannel(Image img, int threshold) {
+
+  // int histogram[256] = {0}, max = 0;
+  // for (int y = 0; y < img.height; y++) {
+  //   for (int x = 0; x < img.width; x++) {
+  //     histogram[img.pixels[x][y].B]++;
+  //   }
+  // }
+
+  // for(int y = 0; y < 256; y++) {
+  //   if(histogram[y] > max) {
+  //     max = histogram[y];
+  //   }
+  // }
+  // cout << max << endl;
+  // int thresh = img.height-((max*img.height) / (img.width*img.height))-1;
+  // cout << thresh << endl;
+
   for (int y = 0; y < img.height; y++) {
     for (int x = 0; x < img.width; x++) {
-      img.pixels[x][y].R = 0;
-      img.pixels[x][y].G = 0;
-      img.pixels[x][y].B = 0;
+      if(img.pixels[x][y].G >= threshold) {
+        img.pixels[x][y].R = img.pixels[x][y].R;
+        img.pixels[x][y].B = img.pixels[x][y].G;
+      }else {
+        int gray = (img.pixels[x][y].R + img.pixels[x][y].G + img.pixels[x][y].B) / 3;
+        img.pixels[x][y].R = gray;
+        img.pixels[x][y].G = gray;
+        img.pixels[x][y].B = gray;
+      }
     }
   }
   return img;
