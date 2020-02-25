@@ -132,11 +132,13 @@ Image Filters::Histogram(Image img) {
   cout << max << endl;
   // normalizar sobre el canal con mayor repeticiones del pixel
 
-  for (int x = 0; x < histo.width; x++) {
-    int normal = (histogram[x] / histo.height);
-    histo.pixels[normal][x].R = 255;
-    histo.pixels[normal][x].G = 255;
-    histo.pixels[normal][x].B = 255;
+  for (int y = 0; y < histo.width; y++) {
+    int normal = histo.height-((histogram[y]*histo.height) / (histo.width*histo.height))-1;
+    for (int x = normal; x < histo.height; x++) {
+      histo.pixels[x][y].R = 255;
+      histo.pixels[x][y].G = 255;
+      histo.pixels[x][y].B = 255;
+    }
   }
 
   return histo;
