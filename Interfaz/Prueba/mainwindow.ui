@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>775</width>
+    <height>486</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Nunito</family>
+    <pointsize>10</pointsize>
+    <weight>50</weight>
+    <italic>false</italic>
+    <bold>false</bold>
+    <underline>false</underline>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="lbl_image">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>600</width>
+      <height>400</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_histo">
+    <property name="geometry">
+     <rect>
+      <x>730</x>
+      <y>10</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>775</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuArchivo">
+    <property name="title">
+     <string>Archivo</string>
+    </property>
+    <addaction name="actionNuevo"/>
+    <addaction name="menubarOptionOpen"/>
+   </widget>
+   <widget class="QMenu" name="menuFiltros">
+    <property name="title">
+     <string>Filtros</string>
+    </property>
+    <widget class="QMenu" name="menuBinarizaci_n">
+     <property name="title">
+      <string>Binarización</string>
+     </property>
+     <addaction name="menubarOptionEscala_de_grises"/>
+     <addaction name="menubarOptionPor_canal"/>
+    </widget>
+    <widget class="QMenu" name="menuExponencial_2">
+     <property name="title">
+      <string>Exponencial</string>
+     </property>
+     <addaction name="menubarOptionAclarado"/>
+     <addaction name="menubarOptionOscurecimiento"/>
+    </widget>
+    <addaction name="menubarOptionNegative"/>
+    <addaction name="menubarOptionGrayscale"/>
+    <addaction name="menubarOptionPower"/>
+    <addaction name="menubarOptionAclarado_logar_tmico"/>
+    <addaction name="menubarOptionSeno"/>
+    <addaction name="menuExponencial_2"/>
+    <addaction name="menubarOptionCosenoidal"/>
+    <addaction name="menuBinarizaci_n"/>
+   </widget>
+   <addaction name="menuArchivo"/>
+   <addaction name="menuFiltros"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionNuevo">
+   <property name="text">
+    <string>Nuevo</string>
+   </property>
+  </action>
+  <action name="menubarOptionOpen">
+   <property name="text">
+    <string>Abrir</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionHisograma">
+   <property name="text">
+    <string>Hisograma</string>
+   </property>
+  </action>
+  <action name="menubarOptionNegative">
+   <property name="text">
+    <string>Negativo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+Shift+N</string>
+   </property>
+  </action>
+  <action name="menubarOptionGrayscale">
+   <property name="text">
+    <string>Escala de grises</string>
+   </property>
+  </action>
+  <action name="menubarOptionPower">
+   <property name="text">
+    <string>Potencia</string>
+   </property>
+  </action>
+  <action name="menubarOptionAclarado_logar_tmico">
+   <property name="text">
+    <string>Aclarado logarítmico</string>
+   </property>
+  </action>
+  <action name="menubarOptionSeno">
+   <property name="text">
+    <string>Seno</string>
+   </property>
+  </action>
+  <action name="menubarOptionCosenoidal">
+   <property name="text">
+    <string>Cosenoidal</string>
+   </property>
+  </action>
+  <action name="menubarOptionEscala_de_grises">
+   <property name="text">
+    <string>Escala de grises</string>
+   </property>
+  </action>
+  <action name="menubarOptionPor_canal">
+   <property name="text">
+    <string>Por canal</string>
+   </property>
+  </action>
+  <action name="menubarOptionAclarado">
+   <property name="text">
+    <string>Aclarado</string>
+   </property>
+  </action>
+  <action name="menubarOptionOscurecimiento">
+   <property name="text">
+    <string>Oscurecimiento</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,10 @@
+Filters.o
+Image.o
+Operations.o
+Pixel.o
+Tools.o
+WinSlider.o
+main.o
+mainwindow.o
+moc_WinSlider.o
+moc_mainwindow.o
