@@ -88,6 +88,20 @@
      <addaction name="menubarOptionAclarado"/>
      <addaction name="menubarOptionOscurecimiento"/>
     </widget>
+    <widget class="QMenu" name="menuBordes">
+     <property name="title">
+      <string>Bordes</string>
+     </property>
+     <addaction name="menubarOptionBordeHorizontal"/>
+     <addaction name="menubarOptionBordeVertical"/>
+    </widget>
+    <widget class="QMenu" name="menuGradiantes">
+     <property name="title">
+      <string>Gradiantes</string>
+     </property>
+     <addaction name="menubarOptionGradientL1"/>
+     <addaction name="menubarOptionGradientL2"/>
+    </widget>
     <addaction name="menubarOptionNegative"/>
     <addaction name="menubarOptionGrayscale"/>
     <addaction name="menubarOptionPower"/>
@@ -96,6 +110,8 @@
     <addaction name="menuExponencial_2"/>
     <addaction name="menubarOptionCosenoidal"/>
     <addaction name="menuBinarizaci_n"/>
+    <addaction name="menuBordes"/>
+    <addaction name="menuGradiantes"/>
    </widget>
    <addaction name="menuArchivo"/>
    <addaction name="menuFiltros"/>
@@ -170,6 +186,26 @@
   <action name="menubarOptionOscurecimiento">
    <property name="text">
     <string>Oscurecimiento</string>
+   </property>
+  </action>
+  <action name="menubarOptionBordeHorizontal">
+   <property name="text">
+    <string>Horizontal</string>
+   </property>
+  </action>
+  <action name="menubarOptionBordeVertical">
+   <property name="text">
+    <string>Vertical</string>
+   </property>
+  </action>
+  <action name="menubarOptionGradientL1">
+   <property name="text">
+    <string>L1</string>
+   </property>
+  </action>
+  <action name="menubarOptionGradientL2">
+   <property name="text">
+    <string>L2</string>
    </property>
   </action>
  </widget>

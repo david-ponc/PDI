@@ -1,0 +1,10 @@
+release/Filters.o
+release/Image.o
+release/Operations.o
+release/Pixel.o
+release/Tools.o
+release/WinSlider.o
+release/main.o
+release/mainwindow.o
+release/moc_WinSlider.o
+release/moc_mainwindow.o

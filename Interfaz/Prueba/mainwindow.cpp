@@ -37,8 +37,8 @@ void MainWindow::backStep() {
 
 void MainWindow::Draw(Image img) {
     qDebug() << currentImg.name;
-    int widthScreen = QApplication::desktop()->width();
-    int heightSreen = QApplication::desktop()->height();
+    // int widthScreen = QApplication::desktop()->width();
+    // int heightSreen = QApplication::desktop()->height();
     QImage qImage;
     qImage.load(img.path);
     for(int i = 0; i < img.height; i++) {
@@ -46,8 +46,8 @@ void MainWindow::Draw(Image img) {
             qImage.setPixel(j, i, qRgb(img.pixels[i][j].R, img.pixels[i][j].G, img.pixels[i][j].B));
         }
     }
-    qImage = qImage.scaledToWidth(widthScreen*.8, Qt::SmoothTransformation);
-    ui->lbl_image->setGeometry(32,32, widthScreen*.8, heightSreen*.8);
+    qImage = qImage.scaledToWidth(1024, Qt::SmoothTransformation);
+    ui->lbl_image->setGeometry(16, 0, 1024, 768);
     ui->lbl_image->setPixmap(QPixmap::fromImage(qImage));
 }
 
@@ -72,7 +72,7 @@ void MainWindow::showHistogram(Image img) {
         }
     }
     qImage = qImage.scaledToWidth(256, Qt::SmoothTransformation);
-    ui->lbl_histo->setGeometry(1616,32, 256, 256);
+    ui->lbl_histo->setGeometry(1024 + 64,32, 256, 256);
     ui->lbl_histo->setPixmap(QPixmap::fromImage(qImage));
 }
 
@@ -212,4 +212,31 @@ void MainWindow::on_menubarOptionPor_canal_triggered() {
         Draw(bincnhnl);
         showHistogram(currentImg);
     }
+}
+
+void MainWindow::on_menubarOptionBordeHorizontal_triggered() {
+    Image borderH = Operations::Copy(currentImg, "BorderHorizontal");
+    borderH = Filters::BorderHorizontal(borderH);
+    imagesList.push(borderH);
+    currentImg = borderH;
+    Draw(currentImg);
+    showHistogram(currentImg);
+}
+
+void MainWindow::on_menubarOptionBordeVertical_triggered() {
+    Image borderV = Operations::Copy(currentImg, "BorderVertical");
+    borderV = Filters::BorderVertical(borderV);
+    imagesList.push(borderV);
+    currentImg = borderV;
+    Draw(currentImg);
+    showHistogram(currentImg);
+}
+
+void MainWindow::on_menubarOptionGradientL1_triggered() {
+    Image gradientL1 = Operations::Copy(currentImg, "GradientL1");
+    gradientL1 = Filters::BorderVertical(gradientL1);
+    imagesList.push(gradientL1);
+    currentImg = gradientL1;
+    Draw(currentImg);
+    showHistogram(currentImg);
 }

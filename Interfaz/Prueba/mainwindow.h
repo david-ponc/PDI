@@ -59,6 +59,12 @@ private slots:
 
     void backStep();
 
+    void on_menubarOptionBordeVertical_triggered();
+
+    void on_menubarOptionBordeHorizontal_triggered();
+
+    void on_menubarOptionGradientL1_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

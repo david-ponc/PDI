@@ -1,0 +1,10 @@
+debug/Filters.o
+debug/Image.o
+debug/Operations.o
+debug/Pixel.o
+debug/Tools.o
+debug/WinSlider.o
+debug/main.o
+debug/mainwindow.o
+debug/moc_WinSlider.o
+debug/moc_mainwindow.o

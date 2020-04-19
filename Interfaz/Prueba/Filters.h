@@ -21,6 +21,10 @@ class Filters {
         static Image ExponentialDarkening(Image img, double alpha);
         static Image Binarize(Image img, int threshold);
         static Image BinarizeByChannel(Image img, int threshold);
+        static Image BorderHorizontal(Image img);
+        static Image BorderVertical(Image img);
+        static Image gradientL1(Image img);
+        static Image gradientL2(Image img);
 };
 
 #endif // FILTERS_H
